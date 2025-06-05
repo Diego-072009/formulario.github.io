@@ -47,7 +47,7 @@ body {
 /* Posicionamiento absoluto del cuadro de la foto */
 .photo-absolute {
     position: absolute;
-    top: 130px;
+    top: 150px;
     right: 5vw;
     z-index: 3;
     display: flex;
@@ -56,7 +56,7 @@ body {
 }
 .blue-photo {
     width: 25vw;
-    min-width: 80px;
+    min-width: 85px;
     max-width: 100px;
     height: 21vw;
     min-height: 50px;
