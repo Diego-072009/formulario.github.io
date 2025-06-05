@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Inventario de Recursos Humanos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container" id="formulario">
+        <div class="header">FORMULARIO DE INVENTARIO DE RECURSOS HUMANOS</div>
+        <div class="sub-header">PLANILLA DE INGRESO</div>
+        <!-- Foto en esquina superior derecha -->
+        <div class="photo-absolute">
+            <label for="photo" class="blue-photo" title="Haz clic para subir foto">
+                <img id="preview" alt="Foto">
+                <span class="photo-label">Subir foto</span>
+                <input class="photo-input" type="file" id="photo" accept="image/*">
+            </label>
+        </div>
+        <!-- Datos generales parte superior -->
+        <div class="top-row">
+            <div class="logo-section">
+                <div class="logo-img"></div>
+                <div class="logo-text">SYTEC<br>S.R.L.</div>
+            </div>
+            <div class="fecha-section">
+                <label class="fecha-label">Fecha de registro:
+                    <input class="fecha-input" type="text" id="fecha_registro" placeholder="dd/mm/aaaa" title="Fecha de registro" value="">
+                </label>
+            </div>
+        </div>
+        <div class="section-title">Datos generales del Trabajador</div>
+        <div class="section-title info-personal">Información personal</div>
+        <table>
+            <tr>
+                <td>Primer nombre:<br><input class="input-line" type="text" id="primer_nombre" placeholder="Ingrese primer nombre" title="Primer nombre"></td>
+                <td>Segundo nombre:<br><input class="input-line" type="text" id="segundo_nombre" placeholder="Ingrese segundo nombre" title="Segundo nombre"></td>
+            </tr>
+            <tr>
+                <td>Primer apellido:<br><input class="input-line" type="text" id="primer_apellido" placeholder="Ingrese primer apellido" title="Primer apellido"></td>
+                <td>Segundo apellido:<br><input class="input-line" type="text" id="segundo_apellido" placeholder="Ingrese segundo apellido" title="Segundo apellido"></td>
+            </tr>
+            <tr>
+                <td>No. de identificación:<br><input class="input-line" type="text" id="identificacion" placeholder="Ingrese No. de identificación"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Lugar y fecha de nacimiento:<br><input class="input-line" type="text" id="lugar_nacimiento" placeholder="Ingrese lugar y fecha de nacimiento"></td>
+                <td>Nacionalidad:<br><input class="input-line" type="text" id="nacionalidad" placeholder="Ingrese nacionalidad"></td>
+            </tr>
+            <tr>
+                <td>Sexo:<br><input class="input-line-short" type="text" id="sexo" placeholder="Sexo"></td>
+                <td>Edad:<br><input class="input-line-short" type="text" id="edad" placeholder="Edad"></td>
+            </tr>
+            <tr>
+                <td>Estado civil:<br><input class="input-line" type="text" id="estado_civil" placeholder="Ingrese estado civil"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2">Dirección de habitación:<br><input class="input-line direccion-input" type="text" id="direccion" placeholder="Ingrese dirección de habitación" title="Dirección de habitación"></td>
+            </tr>
+            <tr>
+                <td>Teléfono habitación:<br><input class="input-line" type="text" id="telefono_habitacion" title="Teléfono habitación" placeholder="Teléfono"></td>
+                <td>Teléfono móvil:<br><input class="input-line" type="text" id="telefono_movil" title="Teléfono móvil" placeholder="Número de celular"></td>
+            </tr>
+        </table>
+        <div class="section-title">Información familiar</div>
+        <table>
+            <tr>
+                <td>Nombre del padre:<br><input class="input-line" type="text" id="nombre_padre" title="Nombre del padre" placeholder="Ingrese nombre del padre"></td>
+                <td>Edad del padre:<br><input class="input-line-short" type="text" id="edad_padre" title="Edad del padre" placeholder="Edad"></td>
+            </tr>
+            <tr>
+                <td>Nombre de la madre:<br><input class="input-line" type="text" id="nombre_madre" title="Nombre de la madre" placeholder="Ingrese nombre de la madre"></td>
+                <td>Edad de la madre:<br><input class="input-line-short" type="text" id="edad_madre" title="Edad de la madre" placeholder="Edad"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Nombre completo del cónyuge:<br><input class="input-line input-conyuge" type="text" id="conyuge" title="Nombre completo del cónyuge" placeholder="Ingrese nombre completo del cónyuge"></td>
+            </tr>
+        </table>
+
+        <table class="tabla-hijo" id="hijos_tabla">
+            <tr>
+                <th>Nombre completo del hijo</th>
+                <th>Fecha de nacimiento</th>
+                <th>Edad</th>
+            </tr>
+            <tr>
+                <td><input class="input-line" type="text" title="Nombre completo del hijo"></td>
+                <td><input class="input-line" type="text" title="Fecha de nacimiento"></td>
+                <td><input class="input-line-short" type="text" title="Edad"></td>
+            </tr>
+            <tr>
+                <td><input class="input-line" type="text" title="Nombre completo del hijo"></td>
+                <td><input class="input-line" type="text" title="Fecha de nacimiento"></td>
+                <td><input class="input-line-short" type="text" title="Edad"></td>
+            </tr>
+            <tr>
+                <td><input class="input-line" type="text" title="Nombre completo del hijo"></td>
+                <td><input class="input-line" type="text" title="Fecha de nacimiento"></td>
+                <td><input class="input-line-short" type="text" title="Edad"></td>
+            </tr>
+            <tr>
+                <td><input class="input-line" type="text" title="Nombre completo del hijo"></td>
+                <td><input class="input-line" type="text" title="Fecha de nacimiento"></td>
+                <td><input class="input-line-short" type="text" title="Edad"></td>
+            </tr>
+        </table>
+        <div class="btn-row">
+            <button class="btn" onclick="descargarPDF()">Descargar PDF</button>
+            <button class="btn" onclick="limpiarDatos()">Limpiar datos</button>
+        </div>
+    </div>
+    <script src="funciones.js"></script>
+</body>
+</html>
